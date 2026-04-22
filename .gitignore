@@ -1,0 +1,20 @@
+# Python 虚拟环境
+venv/
+env/
+*.venv
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.swp
+.DS_Store  # Mac 系统文件
+
+# 你的数据文件夹（如果不想上传用户上传的视频，就把这行加上）
+data/
