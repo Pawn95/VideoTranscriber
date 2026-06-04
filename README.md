@@ -17,7 +17,7 @@
 |------|------|
 | 前端 | React 17, 原生 CSS |
 | 后端 | Flask, Flask-CORS, Gunicorn |
-| 语音识别 | OpenAI Whisper (tiny) |
+| 语音识别 | OpenAI Whisper (base) |
 | 音频处理 | FFmpeg |
 | 部署 | systemd |
 
