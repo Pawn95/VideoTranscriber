@@ -1,5 +1,6 @@
 import os
 import subprocess
+import time
 import warnings
 import whisper
 
@@ -46,3 +47,19 @@ def cleanup_temp_files():
     temp_audio = "data/temp/temp_audio.wav"
     if os.path.exists(temp_audio):
         os.remove(temp_audio)
+
+
+def cleanup_old_temp_files(days=7):
+    """清理指定天数前的临时残留文件"""
+    temp_dir = "data/temp"
+    if not os.path.exists(temp_dir):
+        return
+    cutoff = time.time() - days * 86400
+    deleted = 0
+    for filepath in os.listdir(temp_dir):
+        full_path = os.path.join(temp_dir, filepath)
+        if os.path.isfile(full_path) and os.path.getmtime(full_path) < cutoff:
+            os.remove(full_path)
+            deleted += 1
+    if deleted > 0:
+        print(f"[Auto Cleanup] 已清除 {deleted} 个超过 {days} 天的残留文件")

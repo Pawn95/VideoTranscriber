@@ -2,11 +2,12 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 import uuid
-from core import ensure_dirs, extract_audio, transcribe_audio, save_transcript, cleanup_temp_files
+from core import ensure_dirs, cleanup_old_temp_files, extract_audio, transcribe_audio, save_transcript, cleanup_temp_files
 
 app = Flask(__name__)
 CORS(app)
 ensure_dirs()
+cleanup_old_temp_files(days=7)
 
 # 🔥 关键修复：获取项目根目录的绝对路径
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
