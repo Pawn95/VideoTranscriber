@@ -6,7 +6,7 @@ import whisper
 
 # 配置
 warnings.filterwarnings("ignore", message="FP16 is not supported on CPU; using FP32 instead")
-MODEL_SIZE = "small"
+MODEL_SIZE = "base"
 
 def ensure_dirs():
     """确保必要的文件夹存在"""
